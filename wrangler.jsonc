@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "compatibility_date": "2026-10-12",
+  "compatibility_flags": ["global_fetch_strictly_public"],
+  "name": "sample-cloudflare-turso",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "vars": {
+    "TURSO_URL": "libsql://antares-alfathmuqoddas.aws-ap-northeast-1.turso.io",
+  },
+}
