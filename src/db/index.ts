@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client/web";
-import { relations } from "./schema/relations";
+import { relations } from "./schema";
 import { env } from "cloudflare:workers";
 
 export interface Env {
