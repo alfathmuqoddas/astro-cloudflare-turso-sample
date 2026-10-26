@@ -18,6 +18,9 @@ export const usersTable = sqliteTable("users_test", {
 export const commentsTable = sqliteTable("comments_test", {
   id: integer().primaryKey({ autoIncrement: true }),
   content: text().notNull(),
+  userId: integer()
+    .notNull()
+    .references(() => usersTable.id),
   postId: integer()
     .notNull()
     .references(() => postsTable.id),

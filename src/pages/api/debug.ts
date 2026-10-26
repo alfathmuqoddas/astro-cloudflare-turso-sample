@@ -8,6 +8,11 @@ export const GET: APIRoute = async () => {
       with: {
         posts: {
           columns: { title: true, content: true },
+          with: {
+            comments: {
+              columns: { content: true },
+            },
+          },
         },
       },
     });
