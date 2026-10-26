@@ -6,7 +6,7 @@ dotenv.config({ path: ".dev.vars", override: true });
 
 export default defineConfig({
   out: "./drizzle",
-  schema: "./src/db/schema/index.ts",
+  schema: "./src/db/schema.ts",
   dialect: "turso",
   dbCredentials: {
     url: process.env.TURSO_URL || "",

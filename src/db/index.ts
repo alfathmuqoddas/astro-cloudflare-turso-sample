@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client/web";
-import { relations } from "./schema";
+import { relations } from "./relations";
 import { env } from "cloudflare:workers";
 
 export interface Env {
@@ -14,10 +14,7 @@ export function getDB() {
     authToken: (env as any).TURSO_TOKEN,
   });
 
-  return drizzle({
-    client,
-    relations,
-  });
+  return drizzle({ client, relations });
 }
 
 export type Database = ReturnType<typeof getDB>;

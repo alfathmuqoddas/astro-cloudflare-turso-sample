@@ -1,9 +1,8 @@
 import { defineRelations } from "drizzle-orm";
-import { usersTable } from "./users";
-import { postsTable } from "./posts";
+import { usersTable, postsTable, commentsTable } from "./schema";
 
 export const relations: any = defineRelations(
-  { usersTable, postsTable },
+  { usersTable, postsTable, commentsTable },
   (r) => ({
     usersTable: {
       posts: r.many.postsTable({
@@ -15,6 +14,12 @@ export const relations: any = defineRelations(
       author: r.one.usersTable({
         from: r.postsTable.userId,
         to: r.usersTable.id,
+      }),
+    },
+    commentsTable: {
+      post: r.one.postsTable({
+        from: r.commentsTable.postId,
+        to: r.postsTable.id,
       }),
     },
   }),
